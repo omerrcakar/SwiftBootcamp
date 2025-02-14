@@ -8,13 +8,18 @@
 import UIKit
 
 class OyunEkraniVC: UIViewController {
+    
+    var gelen_kisi: Kisiler?
 
     @IBOutlet weak var labelOyun: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Ana sayfadan gelen mesajı aldık
+        if let kisi = gelen_kisi{
+            labelOyun.text = "\(kisi.email!)"
+        }
     }
     
 
