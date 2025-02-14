@@ -51,5 +51,11 @@ class AnasayfaVC: UIViewController {
         }
     }
     
+    
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        print("Button Save")
+    }
+    
+    
 }
 

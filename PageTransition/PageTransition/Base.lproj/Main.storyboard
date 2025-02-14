@@ -50,7 +50,14 @@
                             <constraint firstItem="Rhu-60-P3s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="gu2-rd-gZZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ana Sayfa" id="2K7-qi-LaS"/>
+                    <navigationItem key="navigationItem" title="Ana Sayfa" id="2K7-qi-LaS">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="fZA-hM-dFs">
+                            <color key="tintColor" systemColor="systemPinkColor"/>
+                            <connections>
+                                <action selector="saveButton:" destination="BYZ-38-t0r" id="gFJ-h6-4sg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="labelAnasayfa" destination="Rhu-60-P3s" id="v5n-w7-jbT"/>
                         <segue destination="K6v-Wj-41L" kind="show" identifier="oyunGecis" id="yeb-jS-gXC"/>
@@ -172,6 +179,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
