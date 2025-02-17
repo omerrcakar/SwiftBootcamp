@@ -15,14 +15,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var switchLabel: UISwitch!
     @IBOutlet weak var segmentLabel: UISegmentedControl!
     
+    @IBOutlet weak var labelSlider: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    
+    @IBOutlet weak var stepperLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
+    
     let placeholerText = NSAttributedString(string: "Enter a data please",
                                             attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        labelSlider.text = "\(Int(slider.value))"
         textFieldData.placeholder = "Enter a Data"
+        stepperLabel.text = "\(Int(stepper.value))"
     }
 
     @IBAction func doButton(_ sender: UIButton) {
@@ -66,6 +73,9 @@ class ViewController: UIViewController {
         if let secilenKategori = segmentLabel.titleForSegment(at: secilenIndex){
             print("Segment Durum : \(secilenKategori)")
         }
+        print(Int(slider.value))
+        
+        print(Int(stepper.value))
         
     }
     
@@ -75,6 +85,18 @@ class ViewController: UIViewController {
             print("Seçilen Kategori : \(secilenKategori)")
         }
     }
+    
+    
+    @IBAction func sliderDegisim(_ sender: UISlider) {
+        labelSlider.text = String(Int(sender.value))
+    }
+    
+    
+    @IBAction func stepperDegisim(_ sender: UIStepper) {
+        stepperLabel.text = String(Int(sender.value))
+    }
+    
+    
     
 }
 
