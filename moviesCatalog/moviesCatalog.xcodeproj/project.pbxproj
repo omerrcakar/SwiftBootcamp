@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A47F90D32D7340E700504903 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A47F90D22D7340E700504903 /* RxSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		A4C7EB9E2D6A087D0024DCEE /* moviesCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moviesCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47F90D32D7340E700504903 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = moviesCatalog;
 			packageProductDependencies = (
+				A47F90D22D7340E700504903 /* RxSwift */,
 			);
 			productName = moviesCatalog;
 			productReference = A4C7EB9E2D6A087D0024DCEE /* moviesCatalog.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = A4C7EB952D6A087D0024DCEE;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A47F90D12D7340E700504903 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A4C7EB9F2D6A087D0024DCEE /* Products */;
 			projectDirPath = "";
@@ -335,6 +344,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A47F90D12D7340E700504903 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A47F90D22D7340E700504903 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A47F90D12D7340E700504903 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4C7EB962D6A087D0024DCEE /* Project object */;
 }

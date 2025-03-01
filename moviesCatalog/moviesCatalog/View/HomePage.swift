@@ -12,6 +12,8 @@ class HomePage: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var movies: [Movies] = []
     
+    var viewModel = HomePageViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -19,13 +21,10 @@ class HomePage: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        let m1 = Movies(id: 1, ad: "Django", resim: "django", fiyat: 155)
-        let m2 = Movies(id: 2, ad: "Interstellar", resim: "interstellar", fiyat: 275)
-        let m3 = Movies(id: 3, ad: "Inception", resim: "inception", fiyat: 345)
-        let m4 = Movies(id: 4, ad: "The Hateful Eight", resim: "thehatefuleight", fiyat: 295)
-        let m5 = Movies(id: 5, ad: "The Pianist", resim: "thepianist", fiyat: 500)
-        let m6 = Movies(id: 6, ad: "Anadoluda", resim: "anadoluda", fiyat: 125)
-        movies = [m1,m2,m3,m4,m5, m6]
+        _ = viewModel.filmListesi.subscribe(onNext: { liste in
+            self.movies = liste
+            self.collectionView.reloadData()
+        })
         
         
         // Screen size design
