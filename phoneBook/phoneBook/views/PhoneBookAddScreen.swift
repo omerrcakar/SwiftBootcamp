@@ -8,6 +8,7 @@ class PhoneBookAddScreen: UIViewController {
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldNo: UITextField!
     
+    var viewModel = AddScreenViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +18,11 @@ class PhoneBookAddScreen: UIViewController {
     
     @IBAction func saveButton(_ sender: UIButton) {
         if let name = textFieldName.text, let no = textFieldNo.text {
-            saveData(name: name, no: no)
+            viewModel.saveData(name: name, no: no)
         }
     }
     
     
-    func saveData(name: String, no: String) {
-        print("Name : \(name) - No : \(no)")
-    }
+    
 
 }

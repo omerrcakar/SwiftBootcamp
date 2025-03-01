@@ -9,6 +9,7 @@ class PhoneDetailScreen: UIViewController {
     
     var person: Phone?
     
+    var viewModel = DetailScreenViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,12 @@ class PhoneDetailScreen: UIViewController {
 
     @IBAction func updateButton(_ sender: UIButton) {
         if let name = textFieldName.text , let no = textFieldNo.text {
-            updatePerson(person_id: person?.kisi_id ?? 0, person_name: name, person_no: no)
+            viewModel.updatePerson(person_id: person?.kisi_id ?? 0, person_name: name, person_no: no)
         }
         
     }
     
     
-    func updatePerson(person_id: Int, person_name: String, person_no: String) {
-        print("Update! \(person_id) \(person_name) \(person_no)")
-    }
+    
 
 }

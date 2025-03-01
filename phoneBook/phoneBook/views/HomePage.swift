@@ -9,6 +9,8 @@ class HomePage: UIViewController {
     
     var phonePersons = [Phone]()
     
+    var viewModel = HomePageViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,19 +18,17 @@ class HomePage: UIViewController {
         phoneTableView.delegate = self
         phoneTableView.dataSource = self
         
-        let kisi1 = Phone(kisi_id: 1, kisi_ad: "Max", kisi_tel: "1111")
-        let kisi2 = Phone(kisi_id: 2, kisi_ad: "Kate", kisi_tel: "2222")
-        let kisi3 = Phone(kisi_id: 3, kisi_ad: "Jimmy", kisi_tel: "3333")
         
-        phonePersons.append(kisi1)
-        phonePersons.append(kisi2)
-        phonePersons.append(kisi3)
+        _ = viewModel.kisilerListesi.subscribe(onNext: { liste in
+            self.phonePersons = liste
+            self.phoneTableView.reloadData()
+        })
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Ana sayfaya dönüldü")
+        viewModel.kisileriYukle()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,7 +45,7 @@ class HomePage: UIViewController {
 
 extension HomePage: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Search : \(searchText)")
+        viewModel.ara(aramaKelimesi: searchText)
     }
 }
 
@@ -79,7 +79,7 @@ extension HomePage : UITableViewDelegate, UITableViewDataSource{
             let iptalAction = UIAlertAction(title: "İptal", style: .cancel)
             alert.addAction(iptalAction)
             let evetAction = UIAlertAction(title: "Evet", style: .default) { (action) in
-                print("Kisi Sil: \(kisi.kisi_ad!)")
+                self.viewModel.delete(kisi_id: kisi.kisi_id!)
             }
             alert.addAction(evetAction)
             
